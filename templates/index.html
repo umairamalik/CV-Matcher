@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Matcher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">CV Matcher</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="description">Enter a description:</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="folder_path">Enter the path to the folder containing CVs:</label>
+                <input type="text" class="form-control" id="folder_path" name="folder_path" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        {% if best_cv %}
+        <div class="mt-4">
+            <h2>Best CV:</h2>
+            <p>{{ best_cv }}</p>
+            <p>Similarity score between the description and best CV: {{ similarity_score }}</p>
+        </div>
+        {% else %}
+        <p class="mt-4">No valid CV found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
 
